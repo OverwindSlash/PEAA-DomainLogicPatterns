@@ -48,7 +48,9 @@
     <Compile Include="Service\NorthwindService.cs" />
     <Compile Include="TableDataGateway\NorthwindTDG.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="TableDataGateway\FindOrderRelativeInfo.sql" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>

@@ -14,7 +14,7 @@ namespace TransactionScript.Service
         private const int MeatCategory = 6;
         private const int SeafoodCategory = 8;
 
-        public void CalculateOrderDiscount(int orderId)
+        public IList<OrderRelativeInfoDto> CalculateOrderDiscount(int orderId)
         {
             IList<OrderRelativeInfoDto> orderRelativeInfos = NorthwindTDG.FindOrderRelativeInfo(orderId).ToList();
 
@@ -24,6 +24,8 @@ namespace TransactionScript.Service
                 {
                     continue;
                 }
+
+                orderRelativeInfo.Discount = 0.00f;
 
                 if (orderRelativeInfo.CategoryID.Value == DairyProductsCategory)
                 {
@@ -39,48 +41,50 @@ namespace TransactionScript.Service
                     {
                         orderRelativeInfo.Discount = 0.10f;
                     }
-                    else if (orderRelativeInfo.Quantity >= 30)
+                    else if (orderRelativeInfo.Quantity < 40)
                     {
                         orderRelativeInfo.Discount = 0.15f;
+                    }
+                    else if (orderRelativeInfo.Quantity < 50)
+                    {
+                        orderRelativeInfo.Discount = 0.20f;
+                    }
+                    else if (orderRelativeInfo.Quantity >= 50)
+                    {
+                        orderRelativeInfo.Discount = 0.25f;
                     }
                 }
 
                 if (orderRelativeInfo.CategoryID.Value == MeatCategory)
                 {
-                    if (orderRelativeInfo.Quantity <= 10)
+                    if (orderRelativeInfo.Quantity <= 20)
                     {
                         orderRelativeInfo.Discount = 0.00f;
-                    }
-                    else if (orderRelativeInfo.Quantity <= 20)
-                    {
-                        orderRelativeInfo.Discount = 0.05f;
                     }
                     else if (orderRelativeInfo.Quantity <= 40)
                     {
                         orderRelativeInfo.Discount = 0.10f;
                     }
-                    else if (orderRelativeInfo.Quantity > 40)
+                    else if (orderRelativeInfo.Quantity <= 60)
                     {
-                        orderRelativeInfo.Discount = 0.15f;
+                        orderRelativeInfo.Discount = 0.20f;
+                    }
+                    else if (orderRelativeInfo.Quantity > 60)
+                    {
+                        orderRelativeInfo.Discount = 0.30f;
                     }
                 }
 
                 if (orderRelativeInfo.CategoryID.Value == SeafoodCategory)
                 {
-                    if (orderRelativeInfo.Quantity <= 5)
-                    {
-                        orderRelativeInfo.Discount = 0.05f;
-                    }
-                    else if (orderRelativeInfo.Quantity <= 10)
-                    {
-                        orderRelativeInfo.Discount = 0.10f;
-                    }
-                    else if (orderRelativeInfo.Quantity > 10)
+                    if (orderRelativeInfo.Quantity >= 10)
                     {
                         orderRelativeInfo.Discount = 0.15f;
                     }
                 }
             }
+
+            return orderRelativeInfos;
         }
     }
 }

@@ -14,16 +14,41 @@ namespace TransactionScript.Service
         private const int MeatCategory = 6;
         private const int SeafoodCategory = 8;
 
-        public IList<OrderRelativeInfoDto> CalculateOrderDiscount(int orderId)
+        public IList<OrderRelativeInfoDto> CalculateOrderDiscount1(int orderId)
         {
-            IList<OrderRelativeInfoDto> orderRelativeInfos = NorthwindTDG.FindOrderRelativeInfo(orderId).ToList();
+            IList<OrderRelativeInfoDto> orderRelativeInfoDtos = new List<OrderRelativeInfoDto>();
 
-            foreach (OrderRelativeInfoDto orderRelativeInfo in orderRelativeInfos)
+            IList<OrderDetailDto> orderDetailDtos = NorthwindTDG.FindOrderDetailById(orderId).ToList();
+            foreach (OrderDetailDto orderDetailDto in orderDetailDtos)
+            {
+                ProductDto productDto = NorthwindTDG.FindProductById(orderDetailDto.ProductID).SingleOrDefault();
+                CategoryDto categoryDto = NorthwindTDG.FindCategoryById(productDto.CategoryID).SingleOrDefault();
+
+                OrderRelativeInfoDto orderRelativeInfoDto = new OrderRelativeInfoDto();
+                orderRelativeInfoDto.OrderID = orderId;
+                orderRelativeInfoDto.ProductName = productDto.ProductName;
+                orderRelativeInfoDto.Quantity = orderDetailDto.Quantity;
+                orderRelativeInfoDto.CategoryID = productDto.CategoryID;
+                orderRelativeInfoDto.CategoryName = categoryDto.CategoryName;
+
+                DoDiscountCalculation(orderRelativeInfoDto);
+
+                orderRelativeInfoDtos.Add(orderRelativeInfoDto);
+            }
+
+            return orderRelativeInfoDtos;
+        }
+
+        public IList<OrderRelativeInfoDto> CalculateOrderDiscount2(int orderId)
+        {
+            IList<OrderRelativeInfoDto> orderRelativeInfoDtos = NorthwindTDG.FindOrderRelativeInfo(orderId).ToList();
+
+            foreach (OrderRelativeInfoDto orderRelativeInfo in orderRelativeInfoDtos)
             {
                 DoDiscountCalculation(orderRelativeInfo);
             }
 
-            return orderRelativeInfos;
+            return orderRelativeInfoDtos;
         }
 
         private static void DoDiscountCalculation(OrderRelativeInfoDto orderRelativeInfo)

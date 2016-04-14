@@ -73,7 +73,7 @@ namespace TransactionScript.TableDataGateway
 
                 IDbCommand command = providerFactory.CreateCommand();
                 command.Connection = connection;
-                command.CommandText = cmdFindOrderDetailById;
+                command.CommandText = cmdFindProductById;
 
                 IDbDataParameter parameter = providerFactory.CreateParameter();
                 parameter.ParameterName = "@ProductID";
@@ -100,6 +100,49 @@ namespace TransactionScript.TableDataGateway
             productDto.CategoryID = dataRecord.GetInt32("CategoryID");
 
             return productDto;
+        }
+        #endregion
+
+        #region FindCategoryById
+        private const string cmdFindCategoryById =
+            "SELECT * FROM [Categories] " +
+            "WHERE [Categories].CategoryID = @CategoryID";
+
+        public static IEnumerable<CategoryDto> FindCategoryById(int categoryId)
+        {
+            using (IDbConnection connection = providerFactory.CreateConnection())
+            {
+                connection.ConnectionString = DbSettings.ConnectionString;
+                connection.Open();
+
+                IDbCommand command = providerFactory.CreateCommand();
+                command.Connection = connection;
+                command.CommandText = cmdFindCategoryById;
+
+                IDbDataParameter parameter = providerFactory.CreateParameter();
+                parameter.ParameterName = "@CategoryID";
+                parameter.DbType = DbType.Int32;
+                parameter.Value = categoryId;
+                command.Parameters.Add(parameter);
+
+                IDataReader reader = command.ExecuteReader();
+                int AffectedRows = reader.RecordsAffected;
+
+                while (reader.Read())
+                {
+                    yield return CreateCategoryDto((IDataRecord)reader);
+                }
+            }
+        }
+
+        private static CategoryDto CreateCategoryDto(IDataRecord dataRecord)
+        {
+            CategoryDto categoryDto = new CategoryDto();
+
+            categoryDto.CategoryID = dataRecord.GetInt32("CategoryID");
+            categoryDto.CategoryName = dataRecord.GetStringOrNull("CategoryName");
+
+            return categoryDto;
         } 
         #endregion
 

@@ -29,6 +29,7 @@ namespace TransactionScript.DbUtil
             return record.GetInt32OrNull(record.GetOrdinal(columnName));
         }
 
+
         public static int GetInt32(this IDataRecord record, string columnName)
         {
             return record.GetInt32(record.GetOrdinal(columnName));
@@ -37,6 +38,16 @@ namespace TransactionScript.DbUtil
         public static short GetInt16(this IDataRecord record, string columnName)
         {
             return record.GetInt16(record.GetOrdinal(columnName));
+        }
+
+        public static decimal GetDecimal(this IDataRecord record, string columnName)
+        {
+            return record.GetDecimal(record.GetOrdinal(columnName));
+        }
+
+        public static float GetFloat(this IDataRecord record, string columnName)
+        {
+            return record.GetFloat(record.GetOrdinal(columnName));
         }
     }
 }

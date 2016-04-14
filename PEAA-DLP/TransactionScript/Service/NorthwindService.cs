@@ -20,71 +20,76 @@ namespace TransactionScript.Service
 
             foreach (OrderRelativeInfoDto orderRelativeInfo in orderRelativeInfos)
             {
-                if (!orderRelativeInfo.CategoryID.HasValue)
-                {
-                    continue;
-                }
-
-                orderRelativeInfo.Discount = 0.00f;
-
-                if (orderRelativeInfo.CategoryID.Value == DairyProductsCategory)
-                {
-                    if (orderRelativeInfo.Quantity < 10)
-                    {
-                        orderRelativeInfo.Discount = 0.00f;
-                    }
-                    else if (orderRelativeInfo.Quantity < 20)
-                    {
-                        orderRelativeInfo.Discount = 0.05f;
-                    }
-                    else if (orderRelativeInfo.Quantity < 30)
-                    {
-                        orderRelativeInfo.Discount = 0.10f;
-                    }
-                    else if (orderRelativeInfo.Quantity < 40)
-                    {
-                        orderRelativeInfo.Discount = 0.15f;
-                    }
-                    else if (orderRelativeInfo.Quantity < 50)
-                    {
-                        orderRelativeInfo.Discount = 0.20f;
-                    }
-                    else if (orderRelativeInfo.Quantity >= 50)
-                    {
-                        orderRelativeInfo.Discount = 0.25f;
-                    }
-                }
-
-                if (orderRelativeInfo.CategoryID.Value == MeatCategory)
-                {
-                    if (orderRelativeInfo.Quantity <= 20)
-                    {
-                        orderRelativeInfo.Discount = 0.00f;
-                    }
-                    else if (orderRelativeInfo.Quantity <= 40)
-                    {
-                        orderRelativeInfo.Discount = 0.10f;
-                    }
-                    else if (orderRelativeInfo.Quantity <= 60)
-                    {
-                        orderRelativeInfo.Discount = 0.20f;
-                    }
-                    else if (orderRelativeInfo.Quantity > 60)
-                    {
-                        orderRelativeInfo.Discount = 0.30f;
-                    }
-                }
-
-                if (orderRelativeInfo.CategoryID.Value == SeafoodCategory)
-                {
-                    if (orderRelativeInfo.Quantity >= 10)
-                    {
-                        orderRelativeInfo.Discount = 0.15f;
-                    }
-                }
+                DoDiscountCalculation(orderRelativeInfo);
             }
 
             return orderRelativeInfos;
+        }
+
+        private static void DoDiscountCalculation(OrderRelativeInfoDto orderRelativeInfo)
+        {
+            if (!orderRelativeInfo.CategoryID.HasValue)
+            {
+                return;
+            }
+
+            orderRelativeInfo.Discount = 0.00f;
+
+            if (orderRelativeInfo.CategoryID.Value == DairyProductsCategory)
+            {
+                if (orderRelativeInfo.Quantity < 10)
+                {
+                    orderRelativeInfo.Discount = 0.00f;
+                }
+                else if (orderRelativeInfo.Quantity < 20)
+                {
+                    orderRelativeInfo.Discount = 0.05f;
+                }
+                else if (orderRelativeInfo.Quantity < 30)
+                {
+                    orderRelativeInfo.Discount = 0.10f;
+                }
+                else if (orderRelativeInfo.Quantity < 40)
+                {
+                    orderRelativeInfo.Discount = 0.15f;
+                }
+                else if (orderRelativeInfo.Quantity < 50)
+                {
+                    orderRelativeInfo.Discount = 0.20f;
+                }
+                else if (orderRelativeInfo.Quantity >= 50)
+                {
+                    orderRelativeInfo.Discount = 0.25f;
+                }
+            }
+
+            if (orderRelativeInfo.CategoryID.Value == MeatCategory)
+            {
+                if (orderRelativeInfo.Quantity <= 20)
+                {
+                    orderRelativeInfo.Discount = 0.00f;
+                }
+                else if (orderRelativeInfo.Quantity <= 40)
+                {
+                    orderRelativeInfo.Discount = 0.10f;
+                }
+                else if (orderRelativeInfo.Quantity <= 60)
+                {
+                    orderRelativeInfo.Discount = 0.20f;
+                }
+                else if (orderRelativeInfo.Quantity > 60)
+                {
+                    orderRelativeInfo.Discount = 0.30f;
+                }
+            }
+
+            if (orderRelativeInfo.CategoryID.Value == SeafoodCategory)
+            {
+                if (orderRelativeInfo.Quantity >= 10)
+                {
+                    orderRelativeInfo.Discount = 0.15f;
+                }
+            }
         }
     }
 }

@@ -191,7 +191,52 @@ namespace TransactionScript.TableDataGateway
             orderRelativeInfoDto.CategoryName = dataRecord.GetStringOrNull("CategoryName");
 
             return orderRelativeInfoDto;
-        } 
+        }
+        #endregion
+
+        #region FindProductStockById
+        private const string cmdFindProductStockById =
+            "SELECT * FROM [Products] " +
+            "WHERE [Products].ProductID = @ProductID";
+
+        public static IEnumerable<ProductStockDto> FindProductStockById(int productId)
+        {
+            using (IDbConnection connection = providerFactory.CreateConnection())
+            {
+                connection.ConnectionString = DbSettings.ConnectionString;
+                connection.Open();
+
+                IDbCommand command = providerFactory.CreateCommand();
+                command.Connection = connection;
+                command.CommandText = cmdFindProductStockById;
+
+                IDbDataParameter parameter = providerFactory.CreateParameter();
+                parameter.ParameterName = "@ProductID";
+                parameter.DbType = DbType.Int32;
+                parameter.Value = productId;
+                command.Parameters.Add(parameter);
+
+                IDataReader reader = command.ExecuteReader();
+                int AffectedRows = reader.RecordsAffected;
+
+                while (reader.Read())
+                {
+                    yield return CreateProductStockDto((IDataRecord)reader);
+                }
+            }
+        }
+
+        private static ProductStockDto CreateProductStockDto(IDataRecord dataRecord)
+        {
+            ProductStockDto productStockDto = new ProductStockDto();
+
+            productStockDto.ProductID = dataRecord.GetInt32("ProductID");
+            productStockDto.ProductName = dataRecord.GetStringOrNull("ProductName");
+            productStockDto.UnitsInStock = dataRecord.GetInt16("UnitsInStock");
+            productStockDto.UnitsOnOrder = dataRecord.GetInt16("UnitsOnOrder");
+
+            return productStockDto;
+        }
         #endregion
     }
 }

@@ -116,5 +116,27 @@ namespace TransactionScript.Service
                 }
             }
         }
+
+        public IList<ProductStockDto> CheckOrderProductStock(int orderId)
+        {
+            IList<ProductStockDto> productStockDtos = new List<ProductStockDto>();
+
+            IList<OrderDetailDto> orderDetailDtos = NorthwindTDG.FindOrderDetailById(orderId).ToList();
+            foreach (OrderDetailDto orderDetailDto in orderDetailDtos)
+            {
+                ProductStockDto productStockDto = NorthwindTDG.FindProductStockById(orderDetailDto.ProductID).SingleOrDefault();
+
+                DoCheckProductStock(productStockDto);
+
+                productStockDtos.Add(productStockDto);
+            }
+
+            return productStockDtos;
+        }
+
+        private static void DoCheckProductStock(ProductStockDto productStockDto)
+        {
+            productStockDto.UnitsNeedToPrepare = (short)(productStockDto.UnitsInStock - productStockDto.UnitsOnOrder);
+        }
     }
 }

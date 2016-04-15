@@ -47,11 +47,13 @@
     <Compile Include="DTOs\OrderDetailDto.cs" />
     <Compile Include="DTOs\OrderRelativeInfoDto.cs" />
     <Compile Include="DTOs\ProductDto.cs" />
+    <Compile Include="DTOs\ProductStockDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\NorthwindService.cs" />
     <Compile Include="TableDataGateway\NorthwindTDG.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TableDataGateway\FindOrderProductStock.sql" />
     <Content Include="TableDataGateway\FindOrderRelativeInfo.sql" />
   </ItemGroup>
   <ItemGroup>

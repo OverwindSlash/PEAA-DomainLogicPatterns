@@ -116,5 +116,18 @@ namespace TransactionScript.Service
                 }
             }
         }
+
+        public IList<EmployeeDto> CalculateOrderQuantityByEmployee()
+        {
+            IList<EmployeeDto> employeeDtos = NorthwindTDG.FindAllEmployees().ToList();
+
+            foreach (EmployeeDto employeeDto in employeeDtos)
+            {
+                IList<OrderDto> orderDtos = NorthwindTDG.FindOrdersByEmployeeID(employeeDto.EmployeeID).ToList();
+                employeeDto.OrderQuantity = orderDtos.Count;
+            }
+
+            return employeeDtos;
+        }
     }
 }

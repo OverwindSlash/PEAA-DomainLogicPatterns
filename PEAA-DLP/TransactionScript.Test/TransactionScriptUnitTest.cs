@@ -164,5 +164,42 @@ namespace TransactionScript.Test
             Assert.AreEqual(15, orderRelativeInfoDtos[3].Quantity);
             Assert.AreEqual(0.15f, orderRelativeInfoDtos[3].Discount);
         }
+
+        [TestMethod]
+        public void TestCalculateOrderQuantityByEmployee()
+        {
+            NorthwindService service = new NorthwindService();
+
+            IList<EmployeeDto> employeeDtos = service.CalculateOrderQuantityByEmployee();
+
+            Assert.AreEqual(9, employeeDtos.Count);
+
+            Assert.AreEqual("Nancy Davolio", employeeDtos[0].Fullname);
+            Assert.AreEqual(123, employeeDtos[0].OrderQuantity);
+
+            Assert.AreEqual("Andrew Fuller", employeeDtos[1].Fullname);
+            Assert.AreEqual(96, employeeDtos[1].OrderQuantity);
+
+            Assert.AreEqual("Janet Leverling", employeeDtos[2].Fullname);
+            Assert.AreEqual(127, employeeDtos[2].OrderQuantity);
+
+            Assert.AreEqual("Margaret Peacock", employeeDtos[3].Fullname);
+            Assert.AreEqual(156, employeeDtos[3].OrderQuantity);
+
+            Assert.AreEqual("Steven Buchanan", employeeDtos[4].Fullname);
+            Assert.AreEqual(42, employeeDtos[4].OrderQuantity);
+
+            Assert.AreEqual("Michael Suyama", employeeDtos[5].Fullname);
+            Assert.AreEqual(67, employeeDtos[5].OrderQuantity);
+
+            Assert.AreEqual("Robert King", employeeDtos[6].Fullname);
+            Assert.AreEqual(72, employeeDtos[6].OrderQuantity);
+
+            Assert.AreEqual("Laura Callahan", employeeDtos[7].Fullname);
+            Assert.AreEqual(104, employeeDtos[7].OrderQuantity);
+
+            Assert.AreEqual("Anne Dodsworth", employeeDtos[8].Fullname);
+            Assert.AreEqual(43, employeeDtos[8].OrderQuantity);
+        }
     }
 }

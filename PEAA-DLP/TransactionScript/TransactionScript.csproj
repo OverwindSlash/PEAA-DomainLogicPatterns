@@ -44,7 +44,9 @@
     <Compile Include="DbUtil\DataRecordExtensions.cs" />
     <Compile Include="DbUtil\DbSettings.cs" />
     <Compile Include="DTOs\CategoryDto.cs" />
+    <Compile Include="DTOs\EmployeeDto.cs" />
     <Compile Include="DTOs\OrderDetailDto.cs" />
+    <Compile Include="DTOs\OrderDto.cs" />
     <Compile Include="DTOs\OrderRelativeInfoDto.cs" />
     <Compile Include="DTOs\ProductDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,6 +54,7 @@
     <Compile Include="TableDataGateway\NorthwindTDG.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TableDataGateway\CalculateOrderQuantityByEmployee.sql" />
     <Content Include="TableDataGateway\FindOrderRelativeInfo.sql" />
   </ItemGroup>
   <ItemGroup>

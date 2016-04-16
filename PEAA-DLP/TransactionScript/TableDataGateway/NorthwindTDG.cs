@@ -194,5 +194,85 @@ namespace TransactionScript.TableDataGateway
         }
         #endregion
 
+        #region FindAllEmployees
+        private const string cmdFindAllEmployees =
+            "SELECT * FROM [Employees]";
+
+        public static IEnumerable<EmployeeDto> FindAllEmployees()
+        {
+            using (IDbConnection connection = providerFactory.CreateConnection())
+            {
+                connection.ConnectionString = DbSettings.ConnectionString;
+                connection.Open();
+
+                IDbCommand command = providerFactory.CreateCommand();
+                command.Connection = connection;
+                command.CommandText = cmdFindAllEmployees;
+
+                IDataReader reader = command.ExecuteReader();
+                int AffectedRows = reader.RecordsAffected;
+
+                while (reader.Read())
+                {
+                    yield return CreateEmployeeDto((IDataRecord)reader);
+                }
+            }
+        }
+
+        private static EmployeeDto CreateEmployeeDto(IDataRecord dataRecord)
+        {
+            EmployeeDto employeeDto = new EmployeeDto();
+
+            employeeDto.EmployeeID = dataRecord.GetInt32("EmployeeID");
+            employeeDto.FirstName = dataRecord.GetStringOrNull("FirstName");
+            employeeDto.LastName = dataRecord.GetStringOrNull("LastName");
+            employeeDto.Fullname = employeeDto.FirstName + " " + employeeDto.LastName;
+            employeeDto.Title = dataRecord.GetStringOrNull("Title");
+
+            return employeeDto;
+        }
+        #endregion
+
+        private const string cmdFindOrdersByEmployeeID =
+            "SELECT * FROM [Orders] " +
+            "WHERE [Orders].EmployeeId = @EmployeeId";
+
+        public static IEnumerable<OrderDto> FindOrdersByEmployeeID(int employeeId)
+        {
+            using (IDbConnection connection = providerFactory.CreateConnection())
+            {
+                connection.ConnectionString = DbSettings.ConnectionString;
+                connection.Open();
+
+                IDbCommand command = providerFactory.CreateCommand();
+                command.Connection = connection;
+                command.CommandText = cmdFindOrdersByEmployeeID;
+
+                IDbDataParameter parameter = providerFactory.CreateParameter();
+                parameter.ParameterName = "@EmployeeId";
+                parameter.DbType = DbType.Int32;
+                parameter.Value = employeeId;
+                command.Parameters.Add(parameter);
+
+
+                IDataReader reader = command.ExecuteReader();
+                int AffectedRows = reader.RecordsAffected;
+
+                while (reader.Read())
+                {
+                    yield return CreateOrderDto((IDataRecord)reader);
+                }
+            }
+        }
+
+        private static OrderDto CreateOrderDto(IDataRecord dataRecord)
+        {
+            OrderDto orderDto = new OrderDto();
+
+            orderDto.OrderID = dataRecord.GetInt32("OrderID");
+            orderDto.EmployeeID = dataRecord.GetInt32("EmployeeID");
+
+            return orderDto;
+        }
     }
 }

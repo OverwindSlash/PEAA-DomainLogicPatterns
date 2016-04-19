@@ -1,0 +1,6 @@
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TransactionScript\bin\Debug\TransactionScript.dll.config
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TransactionScript\bin\Debug\TransactionScript.dll
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TransactionScript\bin\Debug\TransactionScript.pdb
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TransactionScript\obj\Debug\TransactionScript.csprojResolveAssemblyReference.cache
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TransactionScript\obj\Debug\TransactionScript.dll
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TransactionScript\obj\Debug\TransactionScript.pdb

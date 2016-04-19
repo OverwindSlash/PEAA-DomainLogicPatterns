@@ -1,0 +1,10 @@
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule.Test\bin\Debug\TableModule.Test.dll
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule.Test\bin\Debug\TableModule.Test.pdb
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule.Test\bin\Debug\TableModule.dll
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule.Test\bin\Debug\TableModule.pdb
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule.Test\obj\Debug\TableModule.Test.csprojResolveAssemblyReference.cache
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule.Test\obj\Debug\TableModule.Test.dll
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule.Test\obj\Debug\TableModule.Test.pdb
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule.Test\bin\Debug\TableModule.Test.dll.config

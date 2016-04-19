@@ -1,0 +1,6 @@
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule\bin\Debug\TableModule.dll.config
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule\bin\Debug\TableModule.dll
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule\bin\Debug\TableModule.pdb
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule\obj\Debug\TableModule.csprojResolveAssemblyReference.cache
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule\obj\Debug\TableModule.dll
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\TableModule\obj\Debug\TableModule.pdb

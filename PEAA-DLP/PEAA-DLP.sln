@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Database", "0.Database", "{914D0C91-235A-4D59-A1E5-C151DC0AE097}"
+	ProjectSection(SolutionItems) = preProject
+		Database\Northwind.sql = Database\Northwind.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.TransactionScript", "1.TransactionScript", "{15B64BEA-7F11-40DE-A4A0-31BC5E7D72BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionScript", "TransactionScript\TransactionScript.csproj", "{AE2AE888-A6B1-4EFA-8AE9-0909695EB987}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionScript.Test", "TransactionScript.Test\TransactionScript.Test.csproj", "{F1B0DABC-A454-4EE9-A98C-75272F8F0031}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.TableModule", "2.TableModule", "{6651963D-6A6D-4949-884D-0D396478FD49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableModule", "TableModule\TableModule.csproj", "{A7A67B8C-5AC8-4907-B5EE-FDB93C44BD24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableModule.Test", "TableModule.Test\TableModule.Test.csproj", "{E8381507-94A0-4441-A910-748FD251C34D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE2AE888-A6B1-4EFA-8AE9-0909695EB987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE2AE888-A6B1-4EFA-8AE9-0909695EB987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE2AE888-A6B1-4EFA-8AE9-0909695EB987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE2AE888-A6B1-4EFA-8AE9-0909695EB987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1B0DABC-A454-4EE9-A98C-75272F8F0031}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1B0DABC-A454-4EE9-A98C-75272F8F0031}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1B0DABC-A454-4EE9-A98C-75272F8F0031}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1B0DABC-A454-4EE9-A98C-75272F8F0031}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7A67B8C-5AC8-4907-B5EE-FDB93C44BD24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7A67B8C-5AC8-4907-B5EE-FDB93C44BD24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7A67B8C-5AC8-4907-B5EE-FDB93C44BD24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7A67B8C-5AC8-4907-B5EE-FDB93C44BD24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8381507-94A0-4441-A910-748FD251C34D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8381507-94A0-4441-A910-748FD251C34D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8381507-94A0-4441-A910-748FD251C34D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8381507-94A0-4441-A910-748FD251C34D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AE2AE888-A6B1-4EFA-8AE9-0909695EB987} = {15B64BEA-7F11-40DE-A4A0-31BC5E7D72BE}
+		{F1B0DABC-A454-4EE9-A98C-75272F8F0031} = {15B64BEA-7F11-40DE-A4A0-31BC5E7D72BE}
+		{A7A67B8C-5AC8-4907-B5EE-FDB93C44BD24} = {6651963D-6A6D-4949-884D-0D396478FD49}
+		{E8381507-94A0-4441-A910-748FD251C34D} = {6651963D-6A6D-4949-884D-0D396478FD49}
+	EndGlobalSection
+EndGlobal

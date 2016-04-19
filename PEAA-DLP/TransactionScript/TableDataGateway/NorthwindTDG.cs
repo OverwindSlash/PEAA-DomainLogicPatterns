@@ -233,6 +233,7 @@ namespace TransactionScript.TableDataGateway
         }
         #endregion
 
+        #region FindOrdersByEmployeeID
         private const string cmdFindOrdersByEmployeeID =
             "SELECT * FROM [Orders] " +
             "WHERE [Orders].EmployeeId = @EmployeeId";
@@ -273,6 +274,7 @@ namespace TransactionScript.TableDataGateway
             orderDto.EmployeeID = dataRecord.GetInt32("EmployeeID");
 
             return orderDto;
-        }
+        } 
+        #endregion
     }
 }

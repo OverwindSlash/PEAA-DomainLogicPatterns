@@ -1,0 +1,8 @@
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\DomainModel.Test\bin\Debug\DomainModel.Test.dll.config
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\DomainModel.Test\bin\Debug\DomainModel.Test.dll
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\DomainModel.Test\bin\Debug\DomainModel.Test.pdb
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\DomainModel.Test\bin\Debug\DomainModel.dll
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\DomainModel.Test\bin\Debug\DomainModel.pdb
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\DomainModel.Test\obj\Debug\DomainModel.Test.csprojResolveAssemblyReference.cache
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\DomainModel.Test\obj\Debug\DomainModel.Test.dll
+C:\Users\Overwind\Source\Repos\PEAA-DomainLogicPatterns\PEAA-DLP\DomainModel.Test\obj\Debug\DomainModel.Test.pdb

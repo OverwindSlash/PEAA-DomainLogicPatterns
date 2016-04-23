@@ -103,5 +103,50 @@ namespace DomainModel.Test
 
             Assert.AreEqual(orderDetails[0], orderDetailSingle);
         }
+
+        [TestMethod]
+        public void TestFindProductById()
+        {
+            int productId = 9;
+
+            ProductMapper productMapper = new ProductMapper();
+
+            Product product = productMapper.FindProductById(productId);
+
+            Assert.AreEqual(productId, product.ProductID);
+            Assert.AreEqual("Mishi Kobe Niku", product.ProductName);
+            Assert.AreEqual(6, product.CategoryID);
+            Assert.AreEqual(productId.ToString(), product.DomainId);
+        }
+
+        [TestMethod]
+        public void TestReFindProductByIdUsingIdentityMap()
+        {
+            int productId = 9;
+
+            ProductMapper productMapper = new ProductMapper();
+
+            Product product = productMapper.FindProductById(productId);
+
+            Product productFromIdentityMap = productMapper.FindProductById(productId);
+
+            Assert.AreEqual(product, productFromIdentityMap);
+        }
+
+
+        [TestMethod]
+        public void TestFindCategoryById()
+        {
+            int categoryId = 6;
+
+            CategoryMapper categoryMapper = new CategoryMapper();
+
+            Category category = categoryMapper.FindCategoryById(6);
+
+            Assert.AreEqual(categoryId, category.CategoryID);
+            Assert.AreEqual("Meat/Poultry", category.CategoryName);
+            Assert.AreEqual(categoryId.ToString(), category.DomainId);
+        }
+
     }
 }

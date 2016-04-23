@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DomainModel.Domain
 {
-    public class DomainObject
+    public abstract class DomainObject
     {
-        public virtual string DomainId { get; }
+        public abstract string DomainId { get; }
     }
 }

@@ -43,12 +43,16 @@
   <ItemGroup>
     <Compile Include="DbUtil\DataRecordExtensions.cs" />
     <Compile Include="DbUtil\DbSettings.cs" />
+    <Compile Include="Domain\Category.cs" />
     <Compile Include="Domain\DomainObject.cs" />
     <Compile Include="Domain\OrderDetail.cs" />
+    <Compile Include="Domain\Product.cs" />
     <Compile Include="Mapper\AbstractMapper.cs" />
+    <Compile Include="Mapper\CategoryMapper.cs" />
     <Compile Include="Mapper\IdentityMap.cs" />
     <Compile Include="Mapper\OrderDetailMapper.cs" />
     <Compile Include="Mapper\ParameterSource.cs" />
+    <Compile Include="Mapper\ProductMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

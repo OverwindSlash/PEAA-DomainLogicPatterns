@@ -148,5 +148,34 @@ namespace DomainModel.Test
             Assert.AreEqual(categoryId.ToString(), category.DomainId);
         }
 
+
+        [TestMethod]
+        public void TestCalculateOrderDiscountWithMethod1()
+        {
+            int orderId = 10693;
+
+            OrderDetailMapper orderDetailMapper = new OrderDetailMapper();
+
+            IList<OrderDetail> orderDetails = orderDetailMapper.FindOrderDetailByCriterion(orderId);
+
+            foreach (OrderDetail orderDetail in orderDetails)
+            {
+                orderDetail.CalculateOrderDiscount1();
+            }
+
+            Assert.AreEqual(4, orderDetails.Count);
+
+            Assert.AreEqual(6, orderDetails[0].Quantity);
+            Assert.AreEqual(0.00f, orderDetails[0].Discount);
+
+            Assert.AreEqual(60, orderDetails[1].Quantity);
+            Assert.AreEqual(0.20f, orderDetails[1].Discount);
+
+            Assert.AreEqual(30, orderDetails[2].Quantity);
+            Assert.AreEqual(0.15f, orderDetails[2].Discount);
+
+            Assert.AreEqual(15, orderDetails[3].Quantity);
+            Assert.AreEqual(0.15f, orderDetails[3].Discount);
+        }
     }
 }
